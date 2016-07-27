@@ -10,3 +10,11 @@ git commit -m "commit message"
 
 git push origin master
 
+[wtooles:~] $ find . -name .gitconfig -print
+./.gitconfig
+[wtooles:~] $ cat .gitconfig
+[user]
+        email = btooles@gmail.com
+        name = Bill Tooles
+[wtooles:~] $ 
+
