@@ -1,0 +1,12 @@
+git config --global user.name "person's name"
+git config --global user.email "user@email.com"
+git config --global --list
+
+git status
+
+git add "filename" or "." for all
+
+git commit -m "commit message"
+
+git push origin master
+
