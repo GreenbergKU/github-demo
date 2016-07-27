@@ -18,3 +18,10 @@ git push origin master
         name = Bill Tooles
 [wtooles:~] $ 
 
+
+git pull origin master
+***Always do a pull before you do a push*** (BEST PRACTICE)
+Because it updates our local repo with any the changes that may have happened on the remote repo down to our local repo to make sure it is up to date BEFORE we do pushes up to our remote repository
+
+
+
