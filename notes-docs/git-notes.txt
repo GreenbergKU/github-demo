@@ -301,3 +301,20 @@ Your branch is ahead of 'origin/master' by 9 commits.
   (use "git push" to publish your local commits)
 nothing to commit, working directory clean
 [wtooles:~/projects/starter-web] master(9) ±
+
+
+To get help for "git log":
+git help log
+
+To get commit history:
+git log
+git log --abbrev-commit
+git log --oneline
+git log --oneline --graph --decorate
+git log c28cdc3...205034b (range)
+git log --since="3 days ago"
+git log -- hipster.txt
+git log --follow -- level1/level2/level2.txt
+
+git show 5789638453410eb27e4a685733bd758ac5439e93 (shows commit info, including the display of what changed)
+(etc.)
