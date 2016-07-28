@@ -16,12 +16,288 @@ git push origin master
 [user]
         email = btooles@gmail.com
         name = Bill Tooles
-[wtooles:~] $ 
+[wtooles:~] $
 
 
 git pull origin master
 ***Always do a pull before you do a push*** (BEST PRACTICE)
 Because it updates our local repo with any the changes that may have happened on the remote repo down to our local repo to make sure it is up to date BEFORE we do pushes up to our remote repository
 
+To list all the files being tracked by git:
+git ls-files
+
+git add .
+Adds all tracked files recursively to git tracking
+
+To "unstage" staged changes:
+
+[wtooles:~/projects … rter-web/level1] master(+0/-0,4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   level1-file.txt
+
+[wtooles:~/projects … rter-web/level1] master(+0/-0,4) ± git reset HEAD level1-file.txt   <--------------
+Unstaged changes after reset:
+M       level1/level1-file.txt
+[wtooles:~/projects … rter-web/level1] master(+2/-0,4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   level1-file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects … rter-web/level1] master(+2/-0,4) ±
 
 
+To discard changes in working directory:
+
+[wtooles:~/projects … rter-web/level1] master(+2/-0,4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   level1-file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects … rter-web/level1] master(+2/-0,4) ±
+
+git checkout -- <file>   <----------------------------
+
+[wtooles:~/projects … rter-web/level1] master(+2/-0,4) ± git checkout -- level1-file.txt
+[wtooles:~/projects … rter-web/level1] master(4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects … rter-web/level1] master(4) ±
+
+
+To rename files (WITH git):
+git mv level3-file.txt level3.txt
+
+Example:
+[wtooles:~/projects … el1/level2/level3] master(4) ± git mv level3-file.txt level3.txt
+[wtooles:~/projects … el1/level2/level3] master(+0/-0,4) ± ls
+level3.txt
+[wtooles:~/projects … el1/level2/level3] master(+0/-0,4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    level3-file.txt -> level3.txt
+
+[wtooles:~/projects … el1/level2/level3] master(+0/-0,4) ±
+
+To rename files (WITHOUT git):
+mv level2-file.txt level2.txt
+
+Example:
+[wtooles:~/projects … web/level1/level2] master(+0/-3,5)* ± ls
+level2.txt  level3
+[wtooles:~/projects … web/level1/level2] master(+0/-3,5)* ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    level2-file.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        level2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects … web/level1/level2] master(+0/-3,5)* ± git add -A
+[wtooles:~/projects … web/level1/level2] master(+0/-0,5) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    level2-file.txt -> level2.txt
+
+[wtooles:~/projects … web/level1/level2] master(+0/-0,5) ±
+
+Rename file, then back change out(simple way):
+[wtooles:~/projects … web/level1/level2] master(6) ± ls
+level2.txt  level3
+[wtooles:~/projects … web/level1/level2] master(6) ± git mv level2.txt 2.txt
+[wtooles:~/projects … web/level1/level2] master(+0/-0,6) ± ls
+2.txt  level3
+[wtooles:~/projects … web/level1/level2] master(+0/-0,6) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    level2.txt -> 2.txt
+
+[wtooles:~/projects … web/level1/level2] master(+0/-0,6) ± git mv 2.txt level2.txt
+[wtooles:~/projects … web/level1/level2] master(6) ± ls
+level2.txt  level3
+[wtooles:~/projects … web/level1/level2] master(6) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects … web/level1/level2] master(6) ±
+
+
+Moving files to a different directory:
+
+Example:
+[wtooles:~/projects … web/level1/level2] master(6) ± ls
+level2.txt  level3
+[wtooles:~/projects … web/level1/level2] master(6) ± git mv level2.txt level3/
+[wtooles:~/projects … web/level1/level2] master(+0/-0,6) ± ls
+level3
+[wtooles:~/projects … web/level1/level2] master(+0/-0,6) ± cd level3/
+[wtooles:~/projects … el1/level2/level3] master(+0/-0,6) ± ls
+level2.txt  level3.txt
+[wtooles:~/projects … el1/level2/level3] master(+0/-0,6) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    ../level2.txt -> level2.txt
+
+[wtooles:~/projects … el1/level2/level3] master(+0/-0,6) ± cd ..
+[wtooles:~/projects … web/level1/level2] master(+0/-0,6) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    level2.txt -> level3/level2.txt
+
+[wtooles:~/projects … web/level1/level2] master(+0/-0,6) ±
+
+To remove a file that is NOT being tracked by git, use OS "rm":
+rm <filename>
+
+To remove a file that IS being tracked by git, us git "rm":
+[wtooles:~/projects/starter-web] master(8) ± ls
+404.html                          css          hipster.txt  js           README.md
+apple-touch-icon-precomposed.png  favicon.ico  humans.txt   level1       robots.txt
+crossdomain.xml                   fonts        index.html   newfile.txt  simple.html
+[wtooles:~/projects/starter-web] master(8) ± git rm newfile.txt
+rm 'newfile.txt'
+[wtooles:~/projects/starter-web] master(+0/-0,8) ± ls
+404.html                          css          hipster.txt  js         robots.txt
+apple-touch-icon-precomposed.png  favicon.ico  humans.txt   level1     simple.html
+crossdomain.xml                   fonts        index.html   README.md
+[wtooles:~/projects/starter-web] master(+0/-0,8) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 8 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    newfile.txt
+
+[wtooles:~/projects/starter-web] master(+0/-0,8) ±
+
+To backout a staged deletion (deleted using "git rm"):
+
+Example:
+[wtooles:~/projects/starter-web] master(9) ± ls hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± git ls-files | egrep hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± git rm hipster.txt
+rm 'hipster.txt'
+[wtooles:~/projects/starter-web] master(+0/-0,9) ± ls hipster.txt
+ls: cannot access 'hipster.txt': No such file or directory
+[wtooles:~/projects/starter-web] master(+0/-0,9) 2 ± git ls-files | egrep hipster.txt
+[wtooles:~/projects/starter-web] master(+0/-0,9) 1 ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 9 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    hipster.txt
+
+[wtooles:~/projects/starter-web] master(+0/-0,9) ± git reset HEAD hipster.txt
+Unstaged changes after reset:
+D       hipster.txt
+[wtooles:~/projects/starter-web] master(+0/-7,9) ± ls hipster.txt
+ls: cannot access 'hipster.txt': No such file or directory
+[wtooles:~/projects/starter-web] master(+0/-7,9) 2 ± git ls-files | egrep hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(+0/-7,9) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 9 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    hipster.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+0/-7,9) ± git checkout -- hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± ls hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± git ls-files | egrep hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 9 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(9) ±
+
+To backout a staged deletion (deleted using OS "rm"):
+[wtooles:~/projects/starter-web] master(9) ± ls hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± git ls-files | egrep hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± rm hipster.txt
+[wtooles:~/projects/starter-web] master(+0/-7,9) ± ls hipster.txt
+ls: cannot access 'hipster.txt': No such file or directory
+[wtooles:~/projects/starter-web] master(+0/-7,9) 2 ± git ls-files | egrep hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(+0/-7,9) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 9 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    hipster.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+0/-7,9) ± git checkout -- hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± ls hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± git ls-files | egrep hipster.txt
+hipster.txt
+[wtooles:~/projects/starter-web] master(9) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 9 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(9) ±
