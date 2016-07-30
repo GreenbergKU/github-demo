@@ -318,3 +318,58 @@ git log --follow -- level1/level2/level2.txt
 
 git show 5789638453410eb27e4a685733bd758ac5439e93 (shows commit info, including the display of what changed)
 (etc.)
+
+Creating Aliases:
+[wtooles:~/projects/starter-web] master ± git log --all --graph --oneline --decorate
+* c28cdc3 (HEAD -> master, origin/master, origin/HEAD) Deleting new file
+* 5789638 Moving level 2 file back to level 2 directory
+* f54648b Moving file from level 2 to level 3
+* 205034b Renaming Level 2 file
+* bf74cac Renaming level3 file
+* 663f6b0 Adding several files recursively
+* dc6178a More ipsum for hipsters
+* e0f9951 Adding new file
+* 5fd5676 Adding more ipsum text
+* 39c8943 My first commit
+*   4beb7f0 Merge pull request #6 from jasongtaylor/feature-readme
+|\
+| * e73f914 Adding Purpose section to README
+| * 34f563b Adding README file
+|/
+* 5c05047 Copying files from initializr project zip file and then creating simple.html as basis for super simple pages
+[wtooles:~/projects/starter-web] master ± git hist
+git: 'hist' is not a git command. See 'git --help'.
+
+Did you mean this?
+        bisect
+[wtooles:~/projects/starter-web] master ± git config --global alias.hist "log --all --graph --oneline --decorate"
+[wtooles:~/projects/starter-web] master ± git hist
+* c28cdc3 (HEAD -> master, origin/master, origin/HEAD) Deleting new file
+* 5789638 Moving level 2 file back to level 2 directory
+* f54648b Moving file from level 2 to level 3
+* 205034b Renaming Level 2 file
+* bf74cac Renaming level3 file
+* 663f6b0 Adding several files recursively
+* dc6178a More ipsum for hipsters
+* e0f9951 Adding new file
+* 5fd5676 Adding more ipsum text
+* 39c8943 My first commit
+*   4beb7f0 Merge pull request #6 from jasongtaylor/feature-readme
+|\
+| * e73f914 Adding Purpose section to README
+| * 34f563b Adding README file
+|/
+* 5c05047 Copying files from initializr project zip file and then creating simple.html as basis for super simple pages
+[wtooles:~/projects/starter-web] master ± cat ~/.gitconfig
+[user]
+        email = btooles@gmail.com
+        name = Bill Tooles
+[core]
+        editor = atom
+[diff]
+        tool = kdiff3
+[merge]
+        tool = kdiff3
+[alias]
+        hist = log --all --graph --oneline --decorate
+[wtooles:~/projects/starter-web] master ±
