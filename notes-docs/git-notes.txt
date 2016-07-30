@@ -373,3 +373,13 @@ Did you mean this?
 [alias]
         hist = log --all --graph --oneline --decorate
 [wtooles:~/projects/starter-web] master ±
+
+Ignoring files with .gitignore
+⌂69% [wtooles:~/projects/starter-web] master(2) ± ls
+404.html                          css          hipster.txt  js      README.md
+apple-touch-icon-precomposed.png  favicon.ico  humans.txt   level1  robots.txt
+crossdomain.xml                   fonts        index.html   log     simple.html
+[wtooles:~/projects/starter-web] master(2) ± cat .gitignore
+log/
+[wtooles:~/projects/starter-web] master(2) ±
+Ignores the log directory
