@@ -2160,3 +2160,282 @@ nothing to commit, working directory clean
 
 Stashing
 Multiple Stashes
+[wtooles:~/projects/starter-web] master(4) ± ls -l
+total 72
+-rw-rw-r-- 1 wtooles wtooles 4459 Jul 27 17:47 404.html
+-rw-rw-r-- 1 wtooles wtooles 1226 Jul 27 17:47 apple-touch-icon-precomposed.png
+-rw-rw-r-- 1 wtooles wtooles  603 Jul 27 17:47 crossdomain.xml
+drwxrwxr-x 2 wtooles wtooles 4096 Jul 27 17:47 css
+-rw-rw-r-- 1 wtooles wtooles  766 Jul 27 17:47 favicon.ico
+drwxrwxr-x 2 wtooles wtooles 4096 Jul 27 17:47 fonts
+-rw-rw-r-- 1 wtooles wtooles 2578 Jul 28 05:19 hipster.txt
+-rw-rw-r-- 1 wtooles wtooles  264 Jul 31 11:06 humans.txt
+-rw-rw-r-- 1 wtooles wtooles 5169 Jul 31 07:51 index.html
+drwxrwxr-x 3 wtooles wtooles 4096 Jul 27 17:47 js
+drwxrwxr-x 3 wtooles wtooles 4096 Jul 27 20:19 level1
+drwxrwxr-x 2 wtooles wtooles 4096 Jul 30 13:57 log
+-rw-rw-r-- 1 wtooles wtooles  632 Jul 31 11:03 README.md
+-rw-rw-r-- 1 wtooles wtooles   32 Jul 27 17:47 robots.txt
+-rw-rw-r-- 1 wtooles wtooles  531 Jul 31 08:16 simple.html
+-rw-rw-r-- 1 wtooles wtooles  937 Jul 31 06:40 simple.html.orig
+[wtooles:~/projects/starter-web] master(4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(4) ± atom simple.html
+[wtooles:~/projects/starter-web] master(4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1,4) ± git stash save "simple changes"
+Saved working directory and index state On master: simple changes
+HEAD is now at ce71741 Updates to humans file after stach pop
+[wtooles:~/projects/starter-web] master(4)+ ± git stash list
+stash@{0}: On master: simple changes
+[wtooles:~/projects/starter-web] master(4)+ ± atom index.html
+[wtooles:~/projects/starter-web] master(4)+ ± git stash save "index changes"
+Saved working directory and index state On master: index changes
+HEAD is now at ce71741 Updates to humans file after stach pop
+[wtooles:~/projects/starter-web] master(4)+ ± git stash list
+stash@{0}: On master: index changes
+stash@{1}: On master: simple changes
+[wtooles:~/projects/starter-web] master(4)+ ± atom README.md
+[wtooles:~/projects/starter-web] master(4)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git stash save "readme changes"
+Saved working directory and index state On master: readme changes
+HEAD is now at ce71741 Updates to humans file after stach pop
+[wtooles:~/projects/starter-web] master(4)+ ± git stash list
+stash@{0}: On master: readme changes
+stash@{1}: On master: index changes
+stash@{2}: On master: simple changes
+[wtooles:~/projects/starter-web] master(4)+ ± git stash show stash@{1}
+ index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] master(4)+ ±
+[wtooles:~/projects/starter-web] master(4)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(4)+ ± #git stash apply stash@{1}
+[wtooles:~/projects/starter-web] master(4)+ ± git stash list
+stash@{0}: On master: readme changes
+stash@{1}: On master: index changes
+stash@{2}: On master: simple changes
+[wtooles:~/projects/starter-web] master(4)+ ± git stash apply stash@{1}
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ±
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git stash list
+stash@{0}: On master: readme changes
+stash@{1}: On master: index changes
+stash@{2}: On master: simple changes
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git stash drop stash@{1}
+Dropped stash@{1} (1b5f9210845746345ccf03402cec4b1b5107cf64)
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git stash list
+stash@{0}: On master: readme changes
+stash@{1}: On master: simple changes
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git branch
+* master
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git checkout -b testbranch
+M       index.html
+Switched to a new branch 'testbranch'
+[wtooles:~/projects/starter-web] testbranch(+1/-1)+ ± git branch
+  master
+* testbranch
+[wtooles:~/projects/starter-web] testbranch(+1/-1)+ ± git stash list
+stash@{0}: On master: readme changes
+stash@{1}: On master: simple changes
+[wtooles:~/projects/starter-web] testbranch(+1/-1)+ ± git checkout master
+M       index.html
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git branch -d testbranch
+Deleted branch testbranch (was ce71741).
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git branch
+* master
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ±
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git stash list
+stash@{0}: On master: readme changes
+stash@{1}: On master: simple changes
+[wtooles:~/projects/starter-web] master(+1/-1,4)+ ± git stash clear
+[wtooles:~/projects/starter-web] master(+1/-1,4) ± git stash list
+
+Stashing
+Stash to a Branch
+
+[wtooles:~/projects/starter-web] master(+1/-1,4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1,4) ± git stash list
+[wtooles:~/projects/starter-web] master(+1/-1,4) ± atom simple.html
+[wtooles:~/projects/starter-web] master(+1/-1,4) ± atom humans.txt
+[wtooles:~/projects/starter-web] master(+2/-2,4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+        modified:   index.html
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+3/-2,4) ± git add index.html
+[wtooles:~/projects/starter-web] master(+2/-1,4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+        modified:   simple.html
+
+[wtooles:~/projects/starter-web] master(+2/-1,4) ± atom new.md
+[wtooles:~/projects/starter-web] master(+2/-1,4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+        modified:   simple.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        new.md
+
+[wtooles:~/projects/starter-web] master(+2/-1,4)* ± git stash -u
+Saved working directory and index state WIP on master: ce71741 Updates to humans file after stach pop
+HEAD is now at ce71741 Updates to humans file after stach pop
+[wtooles:~/projects/starter-web] master(4)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(4)+ ± git stash list
+stash@{0}: WIP on master: ce71741 Updates to humans file after stach pop
+[wtooles:~/projects/starter-web] master(4)+ ±
+[wtooles:~/projects/starter-web] master(4)+ ± git branch
+* master
+[wtooles:~/projects/starter-web] master(4)+ ± git stash branch newchanges
+Switched to a new branch 'newchanges'
+On branch newchanges
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+        modified:   simple.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        new.md
+
+Dropped refs/stash@{0} (c70c3b83b2d99198da210269bfb1bb5066070cc3)
+[wtooles:~/projects/starter-web] newchanges(+2/-1)* ± git branch
+  master
+* newchanges
+[wtooles:~/projects/starter-web] newchanges(+2/-1)* ±
+[wtooles:~/projects/starter-web] newchanges(+2/-1)* ± git stash list
+[wtooles:~/projects/starter-web] newchanges(+2/-1)* ± git status
+On branch newchanges
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+        modified:   simple.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        new.md
+
+[wtooles:~/projects/starter-web] newchanges(+2/-1)* ±
+[wtooles:~/projects/starter-web] newchanges(+2/-1)* ± rm new.md
+[wtooles:~/projects/starter-web] newchanges(+2/-1) ± git add -A
+[wtooles:~/projects/starter-web] newchanges(+0/-0) ± git status
+On branch newchanges
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   humans.txt
+        modified:   index.html
+        modified:   simple.html
+
+[wtooles:~/projects/starter-web] newchanges(+0/-0) ±
