@@ -904,5 +904,627 @@ Deleted branch simple-changes (was c824473).
 | * 339ad54 Adding copyright notice to README.md
 [wtooles:~/projects/starter-web] master(7) ±
 
+
 Branching & Merging
 Merge Conflict & Resolution
+[wtooles:~/projects/starter-web] master(7) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(7) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(7) ± git checkout -b realwork
+Switched to a new branch 'realwork'
+[wtooles:~/projects/starter-web] realwork ± git branch
+  master
+* realwork
+[wtooles:~/projects/starter-web] realwork ± atom simple.html
+[wtooles:~/projects/starter-web] realwork ± git status
+On branch realwork
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] realwork(+3/-3) ± git commit -am "Making changes to simple.html"
+[realwork c69fd69] Making changes to simple.html
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+[wtooles:~/projects/starter-web] realwork ± git status
+On branch realwork
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] realwork ± git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+[wtooles:~/projects/starter-web] master(7) ± atom simple.html
+[wtooles:~/projects/starter-web] master(7) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+3/-3,7) ± git add simple.html
+[wtooles:~/projects/starter-web] master(+0/-0,7) 1 ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   simple.html
+
+[wtooles:~/projects/starter-web] master(+0/-0,7) ± git commit
+[master 7cf6a98] Adding conflicting changes (on purpose) for Git example.  I hope this works!
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+[wtooles:~/projects/starter-web] master(8) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 8 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(8) ± git log -n10 --oneline --decorate --all --graph
+* 7cf6a98 (HEAD -> master) Adding conflicting changes (on purpose) for Git example.  I hope this works!
+| * c69fd69 (realwork) Making changes to simple.html
+|/
+*   acd7dda Merging changes from simple-changes branch
+|\
+| * c824473 Adding team member to humans.txt
+* | 8a449d0 Adding instructions on how to contribute
+|/
+*   193ab14 Merge branch 'add-copyright'
+|\
+| * 339ad54 Adding copyright notice to README.md
+| * 15073d6 Adding copyright notice
+|/
+* 3698596 Changing title of HTML file
+* f343bb0 (origin/master, origin/HEAD) Updating repo with changes from compare section
+[wtooles:~/projects/starter-web] master(8) ± git branch
+* master
+  realwork
+[wtooles:~/projects/starter-web] master(8) ± git diff master realwork
+diff --git a/simple.html b/simple.html
+index 33e7b17..6abc540 100644
+--- a/simple.html
++++ b/simple.html
+@@ -3,7 +3,7 @@
+     Copyright 2014 Git.Training
+ -->
+ <head>
+-       <title>A Very Respectful Website</title>
++       <title>An Great Website</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+                body {
+@@ -17,11 +17,11 @@
+        <main class="container">
+        <!-- Content Goes Here -->
+                <p>
+-                       I'm not sure what will go here, but I'm sure it will be nice.
++                       Some interesting stuff goes here
+                </p>
+        </main>
+        <footer class="container">
+-               <p>&copy;2014 Jason Taylor</p>
++               <p>&copy; Git Training 2014</p>
+        </footer>
+ </body>
+ </html>
+[wtooles:~/projects/starter-web] master(8) ± git difftool master realwork
+[wtooles:~/projects/starter-web] master(8) ± git merge realwork
+Auto-merging simple.html
+CONFLICT (content): Merge conflict in simple.html
+Automatic merge failed; fix conflicts and then commit the result.
+[wtooles:~/projects/starter-web] master(+12/-0,8) 1 ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 8 commits.
+  (use "git push" to publish your local commits)
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+12/-0,8) ± git mergetool
+Merging:
+simple.html
+
+Normal merge conflict for 'simple.html':
+  {local}: modified file
+  {remote}: modified file
+[wtooles:~/projects/starter-web] master(+0/-0,8)* ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 8 commits.
+  (use "git push" to publish your local commits)
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   simple.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+  simple.html.orig
+
+[wtooles:~/projects/starter-web] master(+0/-0,8)* ± git commit -m "Done resolving merge conflicts"
+[master 8cf09ff] Done resolving merge conflicts
+[wtooles:~/projects/starter-web] master(10)* ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 10 commits.
+(use "git push" to publish your local commits)
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+
+  simple.html.orig
+
+nothing added to commit but untracked files present (use "git add" to track)
+[wtooles:~/projects/starter-web] master(10)* ± atom .gitignore
+[wtooles:~/projects/starter-web] master(10)* ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 10 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-0,10) ± git add .gitignore
+[wtooles:~/projects/starter-web] master(+0/-0,10) ± git commit -am "Updating ignore file to exclude merge temp files"
+[master e5c1cfd] Updating ignore file to exclude merge temp files
+ 1 file changed, 1 insertion(+)
+[wtooles:~/projects/starter-web] master(11) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 11 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(11) ± git branch
+* master
+  realwork
+[wtooles:~/projects/starter-web] master(11) ± git branch -d realwork
+Deleted branch realwork (was c69fd69).
+[wtooles:~/projects/starter-web] master(11) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(11) ± git log -n10 --oneline --decorate --all --graph
+* e5c1cfd (HEAD -> master) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+| * c69fd69 Making changes to simple.html
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+|/
+*   acd7dda Merging changes from simple-changes branch
+|\
+| * c824473 Adding team member to humans.txt
+* | 8a449d0 Adding instructions on how to contribute
+|/
+*   193ab14 Merge branch 'add-copyright'
+|\
+| * 339ad54 Adding copyright notice to README.md
+| * 15073d6 Adding copyright notice
+|/
+[wtooles:~/projects/starter-web] master(11) ±
+
+Branching & Merging
+Section Cleanup
+[wtooles:~/projects/starter-web] master(11) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 11 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(11) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(11) ± git pull origin master
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+[wtooles:~/projects/starter-web] master(11) ± git push origin master
+Counting objects: 30, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (29/29), done.
+Writing objects: 100% (30/30), 3.22 KiB | 0 bytes/s, done.
+Total 30 (delta 18), reused 0 (delta 0)
+To git@github.com:btexpress/starter-web.git
+   f343bb0..e5c1cfd  master -> master
+[wtooles:~/projects/starter-web] master ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master ±
+
+Rebasing
+Simple Example
+[wtooles:~/projects/starter-web] master ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master ± ls
+404.html                          favicon.ico  index.html  README.md
+apple-touch-icon-precomposed.png  fonts        js          robots.txt
+crossdomain.xml                   hipster.txt  level1      simple.html
+css                               humans.txt   log         simple.html.orig
+[wtooles:~/projects/starter-web] master ± git checkout -b myfeature
+Switched to a new branch 'myfeature'
+[wtooles:~/projects/starter-web] myfeature ± git branch
+  master
+* myfeature
+[wtooles:~/projects/starter-web] myfeature ± atom humans.txt
+[wtooles:~/projects/starter-web] myfeature ± git status
+On branch myfeature
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] myfeature(+1/-1) ± git commit -am "Saying thanks to all my students"
+[myfeature 50bfbd5] Saying thanks to all my students
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] myfeature ± git status
+On branch myfeature
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] myfeature ± git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+[wtooles:~/projects/starter-web] master ± atom README.md
+[wtooles:~/projects/starter-web] master ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1) ± git commit -am "Adding oneliner to README for rebase example"
+[master c2dfa4c] Adding oneliner to README for rebase example
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* c2dfa4c (HEAD -> master) Adding oneliner to README for rebase example
+| * 50bfbd5 (myfeature) Saying thanks to all my students
+|/
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+| * c69fd69 Making changes to simple.html
+|/
+*   acd7dda Merging changes from simple-changes branch
+|\
+* | 8a449d0 Adding instructions on how to contribute
+| * c824473 Adding team member to humans.txt
+|/
+*   193ab14 Merge branch 'add-copyright'
+|\
+[wtooles:~/projects/starter-web] master(1) ±
+[wtooles:~/projects/starter-web] master(1) ± git checkout myfeature
+Switched to branch 'myfeature'
+[wtooles:~/projects/starter-web] myfeature ± git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: Saying thanks to all my students
+[wtooles:~/projects/starter-web] myfeature ± git hist10all
+* 6cd5d90 (HEAD -> myfeature) Saying thanks to all my students
+* c2dfa4c (master) Adding oneliner to README for rebase example
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+| * c69fd69 Making changes to simple.html
+|/
+*   acd7dda Merging changes from simple-changes branch
+|\
+* | 8a449d0 Adding instructions on how to contribute
+| * c824473 Adding team member to humans.txt
+|/
+*   193ab14 Merge branch 'add-copyright'
+|\
+[wtooles:~/projects/starter-web] myfeature ± atom README.md
+[wtooles:~/projects/starter-web] myfeature ± git status
+On branch myfeature
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] myfeature(+1/-1) ± git commit -am "Adding another change after rebase"
+[myfeature d610712] Adding another change after rebase
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] myfeature ± git hist10all
+* d610712 (HEAD -> myfeature) Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c (master) Adding oneliner to README for rebase example
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+| * c69fd69 Making changes to simple.html
+|/
+*   acd7dda Merging changes from simple-changes branch
+|\
+* | 8a449d0 Adding instructions on how to contribute
+| * c824473 Adding team member to humans.txt
+|/
+[wtooles:~/projects/starter-web] myfeature ± git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+[wtooles:~/projects/starter-web] master(1) ± atom README.md
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git diff master myfeature
+diff --git a/README.md b/README.md
+index 1ebec4c..ec82610 100644
+--- a/README.md
++++ b/README.md
+@@ -1,6 +1,6 @@
+ # Starter Web Project
+
+-This is a simple website project for showing how to use Git and Github together.  Adding a line for rebasing example.
++This is a simple website project for showing how to use Git and Github together.  Adding a line for rebasing example, then more changes from myfeature branch too.
+
+ ## Introduction
+
+diff --git a/humans.txt b/humans.txt
+index 46cb600..5d1f05e 100644
+--- a/humans.txt
++++ b/humans.txt
+@@ -7,7 +7,7 @@
+
+ # THANKS
+
+-    <name>
++    All my students!
+
+ # TECHNOLOGY COLOPHON
+
+[wtooles:~/projects/starter-web] master(1) ± git difftool master myfeature
+[wtooles:~/projects/starter-web] master(1) ± git merge myfeature
+Updating c2dfa4c..d610712
+Fast-forward
+ README.md  | 2 +-
+ humans.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+[wtooles:~/projects/starter-web] master(3) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(3) ± git diff master myfeature
+[wtooles:~/projects/starter-web] master(3) ± git hist10all
+* d610712 (HEAD -> master, myfeature) Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+| * c69fd69 Making changes to simple.html
+|/
+*   acd7dda Merging changes from simple-changes branch
+|\
+* | 8a449d0 Adding instructions on how to contribute
+| * c824473 Adding team member to humans.txt
+|/
+[wtooles:~/projects/starter-web] master(3) ± git branch
+* master
+  myfeature
+[wtooles:~/projects/starter-web] master(3) ± git branch -d myfeature
+Deleted branch myfeature (was d610712).
+[wtooles:~/projects/starter-web] master(3) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(3) ±
+
+
+Rebasing
+Conflict Setup
+(lost the window for the setup; followel Lecture 59 in Git Complete:  The definitive...)
+
+Rebasing
+Abort!
+[wtooles:~/projects/starter-web] master(5) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(5) ± git branch
+  bigtrouble
+* master
+[wtooles:~/projects/starter-web] master(5) ± git checkout bigtrouble
+Switched to branch 'bigtrouble'
+[wtooles:~/projects/starter-web] bigtrouble ± git difftool master bigtrouble
+[wtooles:~/projects/starter-web] bigtrouble ± git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: fb adding some trouble to simple.html
+Using index info to reconstruct a base tree...
+M       simple.html
+Falling back to patching base and 3-way merge...
+Auto-merging simple.html
+CONFLICT (content): Merge conflict in simple.html
+error: Failed to merge in the changes.
+Patch failed at 0001 fb adding some trouble to simple.html
+The copy of the patch that failed is found in: .git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+[wtooles:~/projects/starter-web] 1cf3b1d(+12/-0) 128 ± git status
+rebase in progress; onto 1cf3b1d
+You are currently rebasing branch 'bigtrouble' on '1cf3b1d'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] 1cf3b1d(+12/-0) ± git rebase --abort
+[wtooles:~/projects/starter-web] bigtrouble ± git status
+On branch bigtrouble
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] bigtrouble ± git hist10all
+* 1cf3b1d (master) mb conflicting changes brewing
+| * 1c8bb3e (HEAD -> bigtrouble) fb adding some trouble to simple.html
+|/
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+| * c69fd69 Making changes to simple.html
+|/
+[wtooles:~/projects/starter-web] bigtrouble ±
+
+Rebasing
+Conflict and Resolution
+
+[wtooles:~/projects/starter-web] bigtrouble ± git status
+On branch bigtrouble
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] bigtrouble ± git hist10all
+* 1cf3b1d (master) mb conflicting changes brewing
+| * 1c8bb3e (HEAD -> bigtrouble) fb adding some trouble to simple.html
+|/
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+| * c69fd69 Making changes to simple.html
+|/
+[wtooles:~/projects/starter-web] bigtrouble ± git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: fb adding some trouble to simple.html
+Using index info to reconstruct a base tree...
+M       simple.html
+Falling back to patching base and 3-way merge...
+Auto-merging simple.html
+CONFLICT (content): Merge conflict in simple.html
+error: Failed to merge in the changes.
+Patch failed at 0001 fb adding some trouble to simple.html
+The copy of the patch that failed is found in: .git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+[wtooles:~/projects/starter-web] 1cf3b1d(+12/-0) 128 ± git mergetool
+Merging:
+simple.html
+
+Normal merge conflict for 'simple.html':
+  {local}: modified file
+  {remote}: modified file
+[wtooles:~/projects/starter-web] 1cf3b1d(+0/-0) ±
+[wtooles:~/projects/starter-web] 1cf3b1d(+0/-0) ± git status
+rebase in progress; onto 1cf3b1d
+You are currently rebasing branch 'bigtrouble' on '1cf3b1d'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   simple.html
+
+[wtooles:~/projects/starter-web] 1cf3b1d(+0/-0) ± git add simple.html
+[wtooles:~/projects/starter-web] 1cf3b1d(+0/-0) ± git status
+rebase in progress; onto 1cf3b1d
+You are currently rebasing branch 'bigtrouble' on '1cf3b1d'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   simple.html
+
+[wtooles:~/projects/starter-web] 1cf3b1d(+0/-0) ± git rebase --continue
+Applying: fb adding some trouble to simple.html
+[wtooles:~/projects/starter-web] bigtrouble ±
+[wtooles:~/projects/starter-web] bigtrouble ± git hist10all
+* d25434e (HEAD -> bigtrouble) fb adding some trouble to simple.html
+* 1cf3b1d (master) mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+| * c69fd69 Making changes to simple.html
+|/
+[wtooles:~/projects/starter-web] bigtrouble ±
+atom simple.html
+[wtooles:~/projects/starter-web] bigtrouble ± git commit -am "Adding changes after rebasing conflict"
+[bigtrouble 8a5aed9] Adding changes after rebasing conflict
+ 1 file changed, 1 deletion(-)
+[wtooles:~/projects/starter-web] bigtrouble ± git status
+On branch bigtrouble
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] bigtrouble ± git hist10all
+* 8a5aed9 (HEAD -> bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d (master) mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+[wtooles:~/projects/starter-web] bigtrouble ± git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+[wtooles:~/projects/starter-web] master(5) ± git merge bigtrouble
+Updating 1cf3b1d..8a5aed9
+Fast-forward
+ simple.html | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+[wtooles:~/projects/starter-web] master(7) ±
+git hist10all
+* 8a5aed9 (HEAD -> master, bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd (origin/master, origin/HEAD) Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+[wtooles:~/projects/starter-web] master(7) ±
