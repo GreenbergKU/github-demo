@@ -720,3 +720,189 @@ Deleted branch title-change (was 3698596).
 [wtooles:~/projects/starter-web] master(1) ± git branch
 * master
 [wtooles:~/projects/starter-web] master(1) ±
+
+Merge with no fast forwards:
+[wtooles:~/projects/starter-web] master(1) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(1) ± git checkout -b add-copyright
+Switched to a new branch 'add-copyright'
+[wtooles:~/projects/starter-web] add-copyright ± git branch
+* add-copyright
+  master
+[wtooles:~/projects/starter-web] add-copyright ± atom simple.html
+[wtooles:~/projects/starter-web] add-copyright ± git status
+On branch add-copyright
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] add-copyright(+3/-0) ± git commit -am "Adding copyright notice"
+[add-copyright 15073d6] Adding copyright notice
+ 1 file changed, 3 insertions(+)
+[wtooles:~/projects/starter-web] add-copyright ± atom README.md
+[wtooles:~/projects/starter-web] add-copyright ± git status
+On branch add-copyright
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] add-copyright(+4/-0) ± git commit -am "Adding copyright notice to README.md"
+[add-copyright 339ad54] Adding copyright notice to README.md
+ 1 file changed, 4 insertions(+)
+[wtooles:~/projects/starter-web] add-copyright ± git status
+On branch add-copyright
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] add-copyright ± git hist
+* 339ad54 (HEAD -> add-copyright) Adding copyright notice to README.md
+* 15073d6 Adding copyright notice
+* 3698596 (master) Changing title of HTML file
+* f343bb0 (origin/master, origin/HEAD) Updating repo with changes from compare section
+* fcbad46 Adding introduction text
+[wtooles:~/projects/starter-web] add-copyright ± git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+[wtooles:~/projects/starter-web] master(1) ± git branch
+  add-copyright
+* master
+[wtooles:~/projects/starter-web] master(1) ± git merge add-copyright --no-ff
+Merge made by the 'recursive' strategy.
+ README.md   | 4 ++++
+ simple.html | 3 +++
+ 2 files changed, 7 insertions(+)
+[wtooles:~/projects/starter-web] master(4) ± git hist
+*   193ab14 (HEAD -> master) Merge branch 'add-copyright'
+|\
+| * 339ad54 (add-copyright) Adding copyright notice to README.md
+| * 15073d6 Adding copyright notice
+|/
+* 3698596 Changing title of HTML file
+* f343bb0 (origin/master, origin/HEAD) Updating repo with changes from compare section
+* fcbad46 Adding introduction text
+
+Branching & Merging
+Automatic Merges
+
+[wtooles:~/projects/starter-web] master(4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(4) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(4) ± git checkout -b simple-changes
+Switched to a new branch 'simple-changes'
+[wtooles:~/projects/starter-web] simple-changes ± git branch
+  master
+* simple-changes
+[wtooles:~/projects/starter-web] simple-changes ± atom humans.txt
+[wtooles:~/projects/starter-web] simple-changes ± git status
+On branch simple-changes
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] simple-changes(+1/-1) ± git commit -am "Adding team member to humans.txt"
+[simple-changes c824473] Adding team member to humans.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] simple-changes ± git status
+On branch simple-changes
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] simple-changes ± git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+[wtooles:~/projects/starter-web] master(4) ± atom README.md
+[wtooles:~/projects/starter-web] master(4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+2/-0,4) ± git commit -am "Adding instructions on how to contribute"
+[master 8a449d0] Adding instructions on how to contribute
+ 1 file changed, 2 insertions(+)
+[wtooles:~/projects/starter-web] master(5) ± git hist
+* 8a449d0 (HEAD -> master) Adding instructions on how to contribute
+| * c824473 (simple-changes) Adding team member to humans.txt
+|/
+*   193ab14 Merge branch 'add-copyright'
+|\
+| * 339ad54 Adding copyright notice to README.md
+| * 15073d6 Adding copyright notice
+|/
+* 3698596 Changing title of HTML file
+* f343bb0 (origin/master, origin/HEAD) Updating repo with changes from compare section
+* fcbad46 Adding introduction text
+* da25ec1 Adding description
+[wtooles:~/projects/starter-web] master(5) ± git branch
+* master
+  simple-changes
+[wtooles:~/projects/starter-web] master(5) ± git merge simple-changes -m "Merging changes from simple-changes branch"
+Merge made by the 'recursive' strategy.
+ humans.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] master(7) ± git hist
+*   acd7dda (HEAD -> master) Merging changes from simple-changes branch
+|\
+| * c824473 (simple-changes) Adding team member to humans.txt
+* | 8a449d0 Adding instructions on how to contribute
+|/
+*   193ab14 Merge branch 'add-copyright'
+|\
+| * 339ad54 Adding copyright notice to README.md
+| * 15073d6 Adding copyright notice
+|/
+* 3698596 Changing title of HTML file
+* f343bb0 (origin/master, origin/HEAD) Updating repo with changes from compare section
+* fcbad46 Adding introduction text
+* da25ec1 Adding description
+[wtooles:~/projects/starter-web] master(7) ± git log -n5 --oneline
+acd7dda Merging changes from simple-changes branch
+8a449d0 Adding instructions on how to contribute
+c824473 Adding team member to humans.txt
+193ab14 Merge branch 'add-copyright'
+339ad54 Adding copyright notice to README.md
+[wtooles:~/projects/starter-web] master(7) 128 ± git log -n5 --oneline --decorate --all --graph
+*   acd7dda (HEAD -> master) Merging changes from simple-changes branch
+|\
+| * c824473 (simple-changes) Adding team member to humans.txt
+* | 8a449d0 Adding instructions on how to contribute
+|/
+*   193ab14 Merge branch 'add-copyright'
+|\
+| * 339ad54 Adding copyright notice to README.md
+[wtooles:~/projects/starter-web] master(7) ± git branch
+* master
+  simple-changes
+[wtooles:~/projects/starter-web] master(7) ± git branch -d simple-changes
+Deleted branch simple-changes (was c824473).
+[wtooles:~/projects/starter-web] master(7) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(7) ± git log -n5 --oneline --decorate --all --graph
+*   acd7dda (HEAD -> master) Merging changes from simple-changes branch
+|\
+| * c824473 Adding team member to humans.txt
+* | 8a449d0 Adding instructions on how to contribute
+|/
+*   193ab14 Merge branch 'add-copyright'
+|\
+| * 339ad54 Adding copyright notice to README.md
+[wtooles:~/projects/starter-web] master(7) ±
+
+Branching & Merging
+Merge Conflict & Resolution
