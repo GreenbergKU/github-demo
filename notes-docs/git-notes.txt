@@ -2438,4 +2438,94 @@ Changes to be committed:
         modified:   index.html
         modified:   simple.html
 
-[wtooles:~/projects/starter-web] newchanges(+0/-0) ±
+[wtooles:~/projects/starter-web] newchanges(+0/-0) ± gitvim
+[wtooles:~/projects/starter-web] newchanges(+0/-0) ± git commit
+[newchanges 4987982] Changes after git-stash-branch command
+ 3 files changed, 3 insertions(+), 2 deletions(-)
+[wtooles:~/projects/starter-web] newchanges ± git status
+On branch newchanges
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] newchanges ± git config --list | egrep -i editor
+core.editor=vim
+[wtooles:~/projects/starter-web] newchanges ± gitatom
+[wtooles:~/projects/starter-web] newchanges ± git config --list | egrep -i editor
+core.editor=atom
+[wtooles:~/projects/starter-web] newchanges ±
+sum ~/.bash_profile
+55013     2
+[wtooles:~/projects/starter-web] newchanges ± git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+[wtooles:~/projects/starter-web] master(4) ± git difftool master newchanges
+[wtooles:~/projects/starter-web] master(4) ± git merge newchanges
+Updating ce71741..4987982
+Fast-forward
+ humans.txt  | 1 +
+ index.html  | 2 +-
+ simple.html | 2 +-
+ 3 files changed, 3 insertions(+), 2 deletions(-)
+[wtooles:~/projects/starter-web] master(5) ± git difftool master newchanges
+[wtooles:~/projects/starter-web] master(5) ± git branch
+* master
+  newchanges
+[wtooles:~/projects/starter-web] master(5) ± git branch -d newchanges
+Deleted branch newchanges (was 4987982).
+[wtooles:~/projects/starter-web] master(5) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(5) ±
+
+
+Stashing
+Section Cleanup
+[wtooles:~/projects/starter-web] master(5) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 5 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(5) ± git hist10all
+* 4987982 (HEAD -> master) Changes after git-stash-branch command
+* ce71741 Updates to humans file after stach pop
+* 6be8924 Quick fix after stash on Readme file
+* 30875c2 Done with simple.html updates
+* 0af09fc Quick fix in production to improve copyright notice
+* da0cf99 (origin/master, origin/HEAD) local2: updating simple.html copyright notice
+* 9e0b44c remote2: minor change to index.html file
+* 14d123c local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 Adding changes after rebasing conflict
+[wtooles:~/projects/starter-web] master(5) ± git pull origin master
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+[wtooles:~/projects/starter-web] master(5) ± git hist10all
+* 4987982 (HEAD -> master) Changes after git-stash-branch command
+* ce71741 Updates to humans file after stach pop
+* 6be8924 Quick fix after stash on Readme file
+* 30875c2 Done with simple.html updates
+* 0af09fc Quick fix in production to improve copyright notice
+* da0cf99 (origin/master, origin/HEAD) local2: updating simple.html copyright notice
+* 9e0b44c remote2: minor change to index.html file
+* 14d123c local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 Adding changes after rebasing conflict
+[wtooles:~/projects/starter-web] master(5) ± git push origin master
+Counting objects: 17, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (17/17), 1.74 KiB | 0 bytes/s, done.
+Total 17 (delta 12), reused 0 (delta 0)
+To git@github.com:btexpress/starter-web.git
+   da0cf99..4987982  master -> master
+[wtooles:~/projects/starter-web] master ± git hist10all
+* 4987982 (HEAD -> master, origin/master, origin/HEAD) Changes after git-stash-branch command
+* ce71741 Updates to humans file after stach pop
+* 6be8924 Quick fix after stash on Readme file
+* 30875c2 Done with simple.html updates
+* 0af09fc Quick fix in production to improve copyright notice
+* da0cf99 local2: updating simple.html copyright notice
+* 9e0b44c remote2: minor change to index.html file
+* 14d123c local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 Adding changes after rebasing conflict
+[wtooles:~/projects/starter-web] master ±
