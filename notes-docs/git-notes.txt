@@ -618,3 +618,6 @@ Comparisons - Local vs Remote:
 git diff <local branch> <remote branch>
 git diff master origin/master
 git difftool master origin/master
+
+Branching & Merging
+The Branch Command
