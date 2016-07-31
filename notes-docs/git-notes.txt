@@ -615,3 +615,6 @@ index 26cbb46..b72bb08 100644
 [wtooles:~/projects/starter-web] master(+3/-1,4) ±
 
 Comparisons - Local vs Remote:
+git diff <local branch> <remote branch>
+git diff master origin/master
+git difftool master origin/master
