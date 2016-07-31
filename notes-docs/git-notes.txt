@@ -436,3 +436,182 @@ index b72bb08..b37a0c5 100644
 [wtooles:~/projects/starter-web] master(+2/-0,4) ± git difftool HEAD
 [wtooles:~/projects/starter-web] master(+2/-0,4) ±
 git difftool HEAD will give you the same info graphically
+
+Compare staging area to last known commit (repository) - git diff --staged HEAD or git difftool --staged HEAD:
+[wtooles:~/projects/starter-web] master(+2/-0,4) ± git diff --staged HEAD
+diff --git a/README.md b/README.md
+index b72bb08..d80a8e8 100644
+--- a/README.md
++++ b/README.md
+@@ -8,6 +8,8 @@ This is example is to show different parts of the Git repository and various com
+
+ ## Purpose
+
++As stated above, the maiin purpose is to provide simple examples for Git training demos.
++
+ ## Deployment
+
+ ## How To Contribute
+[wtooles:~/projects/starter-web] master(+2/-0,4) ±
+
+
+Compare working directory to Staging Area BUT...
+Limit git diff to one file:  git diff -- <filename> or git difftool -- <filename>
+[wtooles:~/projects/starter-web] master(+3/-1,4) ± git diff
+diff --git a/README.md b/README.md
+index d80a8e8..b37a0c5 100644
+--- a/README.md
++++ b/README.md
+@@ -12,4 +12,6 @@ As stated above, the maiin purpose is to provide simple examples for Git trainin
+
+ ## Deployment
+
++This is a simple web project, deployment can be on any web server or even local file system.
++
+ ## How To Contribute
+diff --git a/simple.html b/simple.html
+index ca5e908..8ec03d1 100644
+--- a/simple.html
++++ b/simple.html
+@@ -1,6 +1,6 @@
+ <!DOCTYPE html>
+ <head>
+-       <title></title>
++       <title>Simple Title</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+                body {
+[wtooles:~/projects/starter-web] master(+3/-1,4) ± git diff -- README.md
+diff --git a/README.md b/README.md
+index d80a8e8..b37a0c5 100644
+--- a/README.md
++++ b/README.md
+@@ -12,4 +12,6 @@ As stated above, the maiin purpose is to provide simple examples for Git trainin
+
+ ## Deployment
+
++This is a simple web project, deployment can be on any web server or even local file system.
++
+ ## How To Contribute
+ [wtooles:~/projects/starter-web] master(+3/-1,4) ± git diff -- simple.html
+ diff --git a/simple.html b/simple.html
+ index ca5e908..8ec03d1 100644
+ --- a/simple.html
+ +++ b/simple.html
+ @@ -1,6 +1,6 @@
+  <!DOCTYPE html>
+  <head>
+ -       <title></title>
+ +       <title>Simple Title</title>
+         <link rel="stylesheet" href="css/bootstrap.min.css">
+         <style>
+                 body {
+ [wtooles:~/projects/starter-web] master(+3/-1,4) ±
+
+
+ Comparing between commits:
+ git diff <some commit> HEAD
+ git diff <some commit> <some other commit>
+
+ [wtooles:~/projects/starter-web] master(+3/-1,4) ± git log --oneline
+fcbad46 Adding introduction text
+da25ec1 Adding description
+d1b869b Adding new section:  Deployment
+a205470 Updated README.md
+d58b9c3 Excluding log file directory
+19939ca Adding .gitignore file to exclude unwanted files
+c28cdc3 Deleting new file
+5789638 Moving level 2 file back to level 2 directory
+f54648b Moving file from level 2 to level 3
+205034b Renaming Level 2 file
+bf74cac Renaming level3 file
+663f6b0 Adding several files recursively
+dc6178a More ipsum for hipsters
+e0f9951 Adding new file
+5fd5676 Adding more ipsum text
+39c8943 My first commit
+4beb7f0 Merge pull request #6 from jasongtaylor/feature-readme
+e73f914 Adding Purpose section to README
+34f563b Adding README file
+5c05047 Copying files from initializr project zip file and then creating simple.html as basis for super simple pages
+
+ [wtooles:~/projects/starter-web] master(+3/-1,4) ± git diff c28cdc3 HEAD
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..80dd262
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1 @@
++log/
+diff --git a/README.md b/README.md
+index 06bb023..b72bb08 100644
+--- a/README.md
++++ b/README.md
+@@ -1,7 +1,13 @@
+-# Starter Web Repo
++# Starter Web Project
+
+-This repository is for showing how Git and GitHub work
++This is a simple website project for showing how to use Git and Github together.
++
++## Introduction
++
++This is example is to show different parts of the Git repository and various commands using a web project.
+
+ ## Purpose
+
+-Sample website with plenty of files for demos
+\ No newline at end of file
++## Deployment
++
++## How To Contribute
+[wtooles:~/projects/starter-web] master(+3/-1,4) ± git diff 34f563b e73f914
+diff --git a/README.md b/README.md
+index 84cb45c..06bb023 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,7 @@
+ # Starter Web Repo
+
+-This repository is for showing how Git and GitHub work
+\ No newline at end of file
++This repository is for showing how Git and GitHub work
++
++## Purpose
++
++Sample website with plenty of files for demos
+\ No newline at end of file
+[wtooles:~/projects/starter-web] master(+3/-1,4) ±
+
+Compare HEAD and HEAD-1
+[wtooles:~/projects/starter-web] master(+3/-1,4) ± git diff HEAD HEAD^
+diff --git a/README.md b/README.md
+index b72bb08..26cbb46 100644
+--- a/README.md
++++ b/README.md
+@@ -4,8 +4,6 @@ This is a simple website project for showing how to use Git and Github together.
+
+ ## Introduction
+
+-This is example is to show different parts of the Git repository and various commands using a web project.
+-
+ ## Purpose
+
+ ## Deployment
+[wtooles:~/projects/starter-web] master(+3/-1,4) ± git diff HEAD^ HEAD
+diff --git a/README.md b/README.md
+index 26cbb46..b72bb08 100644
+--- a/README.md
++++ b/README.md
+@@ -4,6 +4,8 @@ This is a simple website project for showing how to use Git and Github together.
+
+ ## Introduction
+
++This is example is to show different parts of the Git repository and various commands using a web project.
++
+ ## Purpose
+
+ ## Deployment
+[wtooles:~/projects/starter-web] master(+3/-1,4) ±
+
+Comparisons - Local vs Remote:
