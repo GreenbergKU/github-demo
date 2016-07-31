@@ -1528,3 +1528,208 @@ git hist10all
 |\
 * | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
 [wtooles:~/projects/starter-web] master(7) ±
+
+Rebasing
+Remote Branches (GitHub)
+[wtooles:~/projects/starter-web] master(7) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(7) ± git pull origin master
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+[wtooles:~/projects/starter-web] master(7) ± git push origin master
+Counting objects: 21, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (21/21), 2.13 KiB | 0 bytes/s, done.
+Total 21 (delta 14), reused 0 (delta 0)
+To git@github.com:btexpress/starter-web.git
+   e5c1cfd..8a5aed9  master -> master
+[wtooles:~/projects/starter-web] master ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master ± git hist10all
+* 8a5aed9 (HEAD -> master, origin/master, origin/HEAD, bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+* | 7cf6a98 Adding conflicting changes (on purpose) for Git example.  I hope this works!
+[wtooles:~/projects/starter-web] master ± atom simple.html
+[wtooles:~/projects/starter-web] master ± git commit -am "local: updating simple.html copyright notice"
+[master 483eb64] local: updating simple.html copyright notice
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* 483eb64 (HEAD -> master) local: updating simple.html copyright notice
+* 8a5aed9 (origin/master, origin/HEAD, bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd Updating ignore file to exclude merge temp files
+*   8cf09ff Done resolving merge conflicts
+|\
+[wtooles:~/projects/starter-web] master(1)
+(Edit index.html on GitHub)
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git fetch origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+   8a5aed9..bc014bf  master     -> origin/master
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commit each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git pull --rebase origin master
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+First, rewinding head to replay your work on top of it...
+Applying: local: updating simple.html copyright notice
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* 14d123c (HEAD -> master) local: updating simple.html copyright notice
+* bc014bf (origin/master, origin/HEAD) remote: minor change to index.html file
+* 8a5aed9 (bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+* e5c1cfd Updating ignore file to exclude merge temp files
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git pull origin master
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+[wtooles:~/projects/starter-web] master(1) ± git push origin master
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 355 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To git@github.com:btexpress/starter-web.git
+   bc014bf..14d123c  master -> master
+[wtooles:~/projects/starter-web] master ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master ± atom simple.html
+[wtooles:~/projects/starter-web] master ± git commit -am "local2: updating simple.html copyright notice"
+[master fa099cc] local2: updating simple.html copyright notice
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* fa099cc (HEAD -> master) local2: updating simple.html copyright notice
+* 14d123c (origin/master, origin/HEAD) local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 (bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+[wtooles:~/projects/starter-web] master(1) ±
+(Edit index.html on GitHub)
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* fa099cc (HEAD -> master) local2: updating simple.html copyright notice
+* 14d123c (origin/master, origin/HEAD) local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 (bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+* c2dfa4c Adding oneliner to README for rebase example
+[wtooles:~/projects/starter-web] master(1) ± git fetch origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+   14d123c..9e0b44c  master     -> origin/master
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commit each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* 9e0b44c (origin/master, origin/HEAD) remote2: minor change to index.html file
+| * fa099cc (HEAD -> master) local2: updating simple.html copyright notice
+|/
+* 14d123c local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 (bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+[wtooles:~/projects/starter-web] master(1) ± git pull --rebase origin master
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+First, rewinding head to replay your work on top of it...
+Applying: local2: updating simple.html copyright notice
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* da0cf99 (HEAD -> master) local2: updating simple.html copyright notice
+* 9e0b44c (origin/master, origin/HEAD) remote2: minor change to index.html file
+* 14d123c local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 (bigtrouble) Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
