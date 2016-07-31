@@ -1733,3 +1733,177 @@ nothing to commit, working directory clean
 * 5c00c4a mb before rebase conflicts
 * d610712 Adding another change after rebase
 * 6cd5d90 Saying thanks to all my students
+[wtooles:~/projects/starter-web] master(1) ±
+
+Rebasing
+Section Cleanup
+
+[wtooles:~/projects/starter-web] master(1) ± pwd
+/home/wtooles/projects/starter-web
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git branch
+  bigtrouble
+* master
+[wtooles:~/projects/starter-web] master(1) ± git branch -d bigtrouble
+Deleted branch bigtrouble (was 8a5aed9).
+[wtooles:~/projects/starter-web] master(1) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* da0cf99 (HEAD -> master) local2: updating simple.html copyright notice
+* 9e0b44c (origin/master, origin/HEAD) remote2: minor change to index.html file
+* 14d123c local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+[wtooles:~/projects/starter-web] master(1) ± git pull origin master
+From github.com:btexpress/starter-web
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+[wtooles:~/projects/starter-web] master(1) ± git hist10all
+* da0cf99 (HEAD -> master) local2: updating simple.html copyright notice
+* 9e0b44c (origin/master, origin/HEAD) remote2: minor change to index.html file
+* 14d123c local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+[wtooles:~/projects/starter-web] master(1) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1) ± git push origin master
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 327 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To git@github.com:btexpress/starter-web.git
+   9e0b44c..da0cf99  master -> master
+[wtooles:~/projects/starter-web] master ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master ± git hist10all
+* da0cf99 (HEAD -> master, origin/master, origin/HEAD) local2: updating simple.html copyright notice
+* 9e0b44c remote2: minor change to index.html file
+* 14d123c local: updating simple.html copyright notice
+* bc014bf remote: minor change to index.html file
+* 8a5aed9 Adding changes after rebasing conflict
+* d25434e fb adding some trouble to simple.html
+* 1cf3b1d mb conflicting changes brewing
+* 5c00c4a mb before rebase conflicts
+* d610712 Adding another change after rebase
+* 6cd5d90 Saying thanks to all my students
+[wtooles:~/projects/starter-web] master ± git diff master origin/master
+[wtooles:~/projects/starter-web] master ±
+
+Stashing
+Simple Example
+[wtooles:~/projects/starter-web] master ± ls
+404.html                          favicon.ico  index.html  README.md
+apple-touch-icon-precomposed.png  fonts        js          robots.txt
+crossdomain.xml                   hipster.txt  level1      simple.html
+css                               humans.txt   log         simple.html.orig
+[wtooles:~/projects/starter-web] master ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master ± atom simple.html
+[wtooles:~/projects/starter-web] master ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1) ± git stash
+Saved working directory and index state WIP on master: da0cf99 local2: updating simple.html copyright notice
+HEAD is now at da0cf99 local2: updating simple.html copyright notice
+[wtooles:~/projects/starter-web] master+ ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master+ ± atom simple.html
+[wtooles:~/projects/starter-web] master+ ± git stash list
+stash@{0}: WIP on master: da0cf99 local2: updating simple.html copyright notice
+[wtooles:~/projects/starter-web] master+ ± atom README.md
+[wtooles:~/projects/starter-web] master+ ± git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1)+ ± git commit -am "Quick fix in production to improve copyright notice"
+[master 0af09fc] Quick fix in production to improve copyright notice
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] master(1)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(1)+ ± git stash apply
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1,1)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-1,1)+ ± atom simple.html
+[wtooles:~/projects/starter-web] master(+1/-1,1)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+2/-3,1)+ ± git commit -am "Done with simple.html updates"
+[master 30875c2] Done with simple.html updates
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+[wtooles:~/projects/starter-web] master(2)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(2)+ ± git stash list
+stash@{0}: WIP on master: da0cf99 local2: updating simple.html copyright notice
+[wtooles:~/projects/starter-web] master(2)+ ± git stash drop
+Dropped refs/stash@{0} (df89a7097e39efdd3f28712d218031a20707c622)
+θ64° [wtooles:~/projects/starter-web] master(2) ±
