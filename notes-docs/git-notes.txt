@@ -621,3 +621,102 @@ git difftool master origin/master
 
 Branching & Merging
 The Branch Command
+[wtooles:~/projects/starter-web] master ± git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+[wtooles:~/projects/starter-web] master ± git branch mynewbranch
+[wtooles:~/projects/starter-web] master ± git branch -a
+* master
+  mynewbranch
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+[wtooles:~/projects/starter-web] master ± git checkout mynewbranch
+Switched to branch 'mynewbranch'
+[wtooles:~/projects/starter-web] mynewbranch ± git branch
+  master
+* mynewbranch
+[wtooles:~/projects/starter-web] mynewbranch ± git branch -a
+  master
+* mynewbranch
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+[wtooles:~/projects/starter-web] mynewbranch ±
+
+Rename a branch:
+[wtooles:~/projects/starter-web] master ± git branch -m mynewbranch newbranch
+[wtooles:~/projects/starter-web] master ± git branch -a
+* master
+  newbranch
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+[wtooles:~/projects/starter-web] master ±
+
+Delete a branch:
+[wtooles:~/projects/starter-web] master ± git branch -d newbranch
+Deleted branch newbranch (was f343bb0).
+[wtooles:~/projects/starter-web] master ± git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+[wtooles:~/projects/starter-web] master ±
+
+Create a branch and check it out at the same time:
+[wtooles:~/projects/starter-web] master ± git checkout -b title-change
+Switched to a new branch 'title-change'
+[wtooles:~/projects/starter-web] title-change ± git branch -a
+  master
+* title-change
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+[wtooles:~/projects/starter-web] title-change ± git status
+On branch title-change
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] title-change ±
+[wtooles:~/projects/starter-web] title-change ± atom simple.html
+[wtooles:~/projects/starter-web] title-change ± git status
+On branch title-change
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   simple.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] title-change(+1/-1) ± git commit -am "Changing title of HTML file"
+[title-change 3698596] Changing title of HTML file
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] title-change ± git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+[wtooles:~/projects/starter-web] master ± git diff master title-change
+diff --git a/simple.html b/simple.html
+index 8ec03d1..57e5ae2 100644
+--- a/simple.html
++++ b/simple.html
+@@ -1,6 +1,6 @@
+ <!DOCTYPE html>
+ <head>
+ -       <title>Simple Title</title>
++       <title>An example Website</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+                body {
+[wtooles:~/projects/starter-web] master ± git difftool master title-change
+[wtooles:~/projects/starter-web] master ± git merge title-change
+Updating f343bb0..3698596
+Fast-forward
+ simple.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[wtooles:~/projects/starter-web] master(1) ±
+
+Fast forwarding is only possible when there are no changes made on the target branch
+
+[wtooles:~/projects/starter-web] master(1) ± git branch
+* master
+  title-change
+[wtooles:~/projects/starter-web] master(1) ± git branch -d title-change
+Deleted branch title-change (was 3698596).
+[wtooles:~/projects/starter-web] master(1) ± git branch
+* master
+[wtooles:~/projects/starter-web] master(1) ±
