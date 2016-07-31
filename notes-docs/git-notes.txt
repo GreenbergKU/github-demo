@@ -2060,4 +2060,103 @@ Untracked files:
         ANewFile.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
-[wtooles:~/projects/starter-web] master(+1/-0,2)* ± 
+[wtooles:~/projects/starter-web] master(+1/-0,2)* ± git stash -u
+Saved working directory and index state WIP on master: 30875c2 Done with simple.html updates
+HEAD is now at 30875c2 Done with simple.html updates
+[wtooles:~/projects/starter-web] master(2)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(2)+ ±
+[wtooles:~/projects/starter-web] master(2)+ 1 ± git stash list
+stash@{0}: WIP on master: 30875c2 Done with simple.html updates
+[wtooles:~/projects/starter-web] master(2)+ ± atom README.md
+[wtooles:~/projects/starter-web] master(2)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-2,2)+ ± git commit
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+        modified:   README.md
+
+no changes added to commit
+[wtooles:~/projects/starter-web] master(+1/-2,2)+ 1 ± git commit -a
+Aborting commit due to empty commit message.
+[wtooles:~/projects/starter-web] master(+1/-2,2)+ 1 ±
+[wtooles:~/projects/starter-web] master(+1/-2,2)+ 1 ± git commit -am "Quick fix after stash on Readme file"
+[master 6be8924] Quick fix after stash on Readme file
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+[wtooles:~/projects/starter-web] master(3)+ ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(3)+ ± git stash pop
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ANewFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (3e8a3479203eb0ca271a9b21b09a8492cd9340da)
+[wtooles:~/projects/starter-web] master(+1/-0,3)* ±
+[wtooles:~/projects/starter-web] master(+1/-0,3)* ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        ANewFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-0,3)* ± rm ANewFile.txt
+[wtooles:~/projects/starter-web] master(+1/-0,3) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   humans.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[wtooles:~/projects/starter-web] master(+1/-0,3) ± git commit -am "Updates to humans file after stach pop"
+[master ce71741] Updates to humans file after stach pop
+ 1 file changed, 1 insertion(+)
+[wtooles:~/projects/starter-web] master(4) ± git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+[wtooles:~/projects/starter-web] master(4) ±
+
+Stashing
+Multiple Stashes
